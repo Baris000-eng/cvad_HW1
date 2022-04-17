@@ -52,7 +52,7 @@ def plot_losses(train_loss, val_loss):
     
     plt.legend([train_str, validation_str], loc = location_str)
    
-    plt.show()
+    plt.show() #Displaying the plot
     
     print("*******The End of the plotting*****")
     
@@ -62,7 +62,7 @@ def plot_losses(train_loss, val_loss):
     """Visualize your plots and save them for your report."""
     # Your code here
     
-    plt.show()
+   
 
 
 def main():
