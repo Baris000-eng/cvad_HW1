@@ -8,51 +8,12 @@ from .off_policy import BaseOffPolicy
 
 class TD3(BaseOffPolicy):
     def _compute_q_loss(self, data):
-        """Compute q loss for given batch of data."""
-        do= data['obs']
-        da= data['act']
-        dr=data['rew']
-        do2=data['obs2']
-        dd=data['done']
-       
-        q1 = ac.q1(do,da)
-        q2 = ac.q2(do,da)
+      pass
 
-        # Bellman backup for Q functions
-        with torch.no_grad():
-            pi_targ = ac_targ.pi(do2)
-
-            # Target policy smoothing
-            eps = torch.randn_like(pi_targ) * target_noise
-            eps = torch.clamp(eps, -noise_clip, noise_clip)
-            a2 = pi_targ + eps
-            a2 = torch.clamp(a2, -act_limit, act_limit)
-
-            # Target Q-values
-            q1_pi_target_value = ac_targ.q1(do2, a2)
-            q2_pi_target_value = ac_targ.q2(do2, a2)
-            if(q1_pi_target_value<=q2_pi_target_value):
-               q_pi_targ=q1_pi_target_value
-            else:
-               q_pi_targ=q2_pi_target_value
-            
-            bac = dr + gamma * (1 - dd) * q_pi_targ
-
-        ls_q = ((q1 - bac)**2).mean() + ((q2 - bac)**2).mean()
-
-        # Useful info for logging
-        ls_inf = dict(Q1Vals=q1.detach().numpy(),
-                         Q2Vals=q2.detach().numpy())
-
-        return ls_q, ls_inf
         
 
     def _compute_p_loss(self, data):
-        l = data['obs']
-        q1_pVal=ac.q1(l,ac.pi(l))
-        return -q1_pVal.mean()
-        """Compute policy loss for given batch of data."""
-        
+       pass
 
     def _extract_features(self, state):
         """Extract whatever features you wish to give as input to policy and q networks."""
