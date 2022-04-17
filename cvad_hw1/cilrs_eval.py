@@ -12,8 +12,10 @@ class Evaluator():
         self.agent = self.load_agent()
 
     def load_agent():
-        # Your code here
-        pass
+        model_string_value = "cilrs_model.ckpt"
+        return torch.load(model_string_value)
+        
+        
 
     def generate_action(rgb, command, speed):
         # Your code here
