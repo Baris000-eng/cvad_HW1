@@ -1,8 +1,10 @@
 import os
 
+
 import yaml
 
 from carla_env.env import Env
+import torch
 
 
 class Evaluator():
