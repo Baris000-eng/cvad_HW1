@@ -11,5 +11,6 @@ class CILRS(nn.Module):
         
 
     def forward(self, img, command):
+      pass
         
 
